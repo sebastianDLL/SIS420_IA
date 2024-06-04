@@ -14,12 +14,12 @@ class GameScene(SceneBase):
         screen = pygame.display.get_surface()
         size = screen.get_size()
         rect_width, rect_height = 5, 5
-        for i in range(2):
+        for i in range(3):
             rect = pygame.Rect(
-                (i+1)*(size[0] / 3) - 0.5*rect_width, 0, rect_width, size[1])
+                (i+1)*(size[0] / 4) - 0.5*rect_width, 0, rect_width, size[1])
             pygame.draw.rect(self.background, (255, 255, 255), rect)
             rect = pygame.Rect(
-                0, (i+1)*(size[1] / 3) - 0.5*rect_height, size[0], rect_height)
+                0, (i+1)*(size[1] / 4) - 0.5*rect_height, size[0], rect_height)
             pygame.draw.rect(self.background, (255, 255, 255), rect)
         
         self.initial_background = self.background
@@ -37,8 +37,8 @@ class GameScene(SceneBase):
         self.background = self.initial_background.copy()
 
     def grid2pixels(self, x, y):
-        x = (x*2 + 1)*(self.size[0]/6)
-        y = (y*2 + 1)*(self.size[1]/6)
+        x = (x*2 + 1)*(self.size[0]/8)
+        y = (y*2 + 1)*(self.size[1]/8)
         return x, y
 
     def process_input(self, scene_manager):
@@ -52,8 +52,8 @@ class GameScene(SceneBase):
             # click en la cuadrícula
             elif event.type == pygame.MOUSEBUTTONDOWN and not self._game_over:
                 # coordenadas del click
-                x = int(event.pos[0] // (self.size[0] / 3))
-                y = int(event.pos[1] // (self.size[1] / 3))
+                x = int(event.pos[0] // (self.size[0] / 4))
+                y = int(event.pos[1] // (self.size[1] / 4))
                 # movimiento jugador
                 if (y, x) in self.board.valid_moves():
                     self.board.update(self.player.symbol, y, x)
@@ -82,7 +82,7 @@ class GameScene(SceneBase):
         if state == -1:
             width, height = 50, 50
             rect = pygame.Rect(
-                x - width / 2, y - height / 2, width, height)
+                x - width / 3, y - height / 3, width, height)
             pygame.draw.rect(
                 self.background, (255, 255, 255), rect)
         elif state == 1:
@@ -99,7 +99,7 @@ class GameScene(SceneBase):
         font = pygame.font.Font(None, 56)
         text = font.render(msg, 1, (255, 0, 255))
         textpos = text.get_rect(
-            centerx=self.background.get_width()/2,
-            centery=self.background.get_height()/2)
+            centerx=self.background.get_width()/3,
+            centery=self.background.get_height()/3)
         self.background.blit(text, textpos)
 
