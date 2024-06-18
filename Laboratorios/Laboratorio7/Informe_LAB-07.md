@@ -5,7 +5,7 @@
 
 Implementación de las diferentes estrategias con el entorno [Gymnasium](https://gymnasium.farama.org/) .
 
-Repositorios: [Github_1](https://github.com/sebastianDLL/SIS420_IA) - 
+Repositorios: [Github_1](https://github.com/sebastianDLL/SIS420_IA/tree/main/Laboratorios/Laboratorio7) - 
               [Github_2](https://github.com/Gonzales-Franz-Reinaldo/SIS420-AI/tree/main/Laboratorios/LAB-07_Aprendizaje_por_Refuerzo)
 
 # Balance entre exploración y explotación
