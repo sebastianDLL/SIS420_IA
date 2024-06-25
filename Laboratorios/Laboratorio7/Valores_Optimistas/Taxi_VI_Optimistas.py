@@ -25,12 +25,12 @@ def train(episodes):
     for i in range(episodes):
         
         #! Reinicia el entorno cada 100 episodios, alternando entre modos con y sin renderización
-        if (i + 1) % 100 == 0:
-            env.close()
-            env = gym.make("Taxi-v3", render_mode="human")
-        else:
-            env.close()
-            env = gym.make("Taxi-v3")
+        # if (i + 1) % 100 == 0:
+        #     env.close()
+        #     env = gym.make("Taxi-v3", render_mode="human")
+        # else:
+        #     env.close()
+        #     env = gym.make("Taxi-v3")
 
         # Reinicia el entorno y obtiene el estado inicial
         state = env.reset()[0]
